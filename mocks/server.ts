@@ -51,6 +51,25 @@ app.get('/api/users', (req, res) => {
     }
 });
 
+app.post('/api/transactions', (req, res) => {
+    try {
+        const txn = transactionService.createTransaction(req.body);
+        res.status(200).json(txn);
+    } catch (err: any) {
+        console.error('!!! Error in createTransaction:', err.message);
+        res.status(400).json({ error: err.message });
+    }
+});
+
+app.get('/api/users/:userId/transactions', (req, res) => {
+    try {
+        const txns = transactionService.getTransactionsByUserId(req.params.userId);
+        res.status(200).json(txns);
+    } catch (err: any) {
+        res.status(404).json({ error: err.message });
+    }
+});
+
 app.listen(port, () => {
   console.log(`Mock API server listening at http://localhost:${port}`);
 });
