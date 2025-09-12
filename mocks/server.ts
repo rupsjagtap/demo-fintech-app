@@ -15,6 +15,7 @@ const port = 3000;
 
 // In-memory DB
 export const userService = new UserService();
+export const transactionService = new TransactionService(userService);
 export const transactions: any[] = [];
 
 // Serve static HTML file at root
