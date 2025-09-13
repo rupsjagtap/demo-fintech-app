@@ -1,72 +1,79 @@
 
-**Installation**
+## Installation
 
 Download and install NodeJs https://nodejs.org/en/download
 
-Check nodeJS and npm versions:
+#### Check nodeJS and npm versions:
 
 node -v
 npm -v
 
-Initialize the project
+#### Initialize the project
+
 cd <project_path>
 npm init -y
 
-Install core test stack
+#### Install core test stack
+
 npm install -D playwright @playwright/test typescript ts-node
 npx playwright install
 npm install uuid
 
-Install extras
+#### Install extras
 
 npm install -D @faker-js/faker dotenv
 
-Install your preferred mock server
+#### Install your preferred mock server
 
 npm install -D json-server
 
-Install custom routes
+#### Install custom routes
 
 npm install -D express
 
-Install Express
+#### Install Express
 
 npm install -D express body-parser
 npm install --save-dev @types/express @types/node
 npm install --save-dev ts-node typescript
 
-Install TSX
+#### Install TSX
 
 npm install -D tsx
 
-
-**UI Set up**
+## UI Set up
 
 Step 1: Set up React Project (Vite)
 npm create vite@latest frontend -- --template react-ts
 cd frontend
 npm install
 
-**Start the dev server:**
+## Run localhost Dev Server
 
-npm run dev
+`npx ts-node mocks/server.ts`
 
-**Run Server**
+## Run Tests
 
-npx ts-node mocks/server.ts
+**UI Tests** (Run from root of the project):
 
-**Run Tests**
+Run dev server before running UI tests
 
-UI Tests (Run from root of the project):
+`npx ts-node mocks/server.ts`
 
-npx playwright test tests/ui/user_ui.spec.ts
+Run Tests
 
-npx playwright test tests/ui/user_ui.spec.ts
+`npx playwright test tests/ui/user_ui.spec.ts`
 
-API Tests: Run from root of the project:
-npx playwright test tests/api --headed
+`npx playwright test tests/ui/transaction_ui.spec.ts`
+
+**API Tests:** 
+
+Run from root of the project:
+
+`npx playwright test tests/api --headed`
 
 **Localhost URL**
+
 http://localhost:3000
 
 http://localhost:3000/user_crud.html
