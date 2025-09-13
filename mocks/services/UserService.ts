@@ -6,7 +6,9 @@ function isValidAccountType(value: string): value is AccountType {
 }
 
 export class UserService {
+  // key is userId. Value is User object.
   private users = new Map<string, User>();
+  // Set of emails to detect duplicate users.
   private emails = new Set<string>();
 
   createUser(user: { name: string; email: string; accountType: string }): User {

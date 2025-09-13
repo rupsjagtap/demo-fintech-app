@@ -3,7 +3,9 @@ import { Transaction } from '../types';
 import { v4 as uuidv4 } from 'uuid';
 
 export class TransactionService {
+    // Key is transactionId. Value is Transaction object.
     private transactions = new Map<string, Transaction>();
+    // Key is userId. Value is a list of Transaction objects for transactions made by this user.
     private userTransactions = new Map<string, Transaction[]>();
     private userService: UserService;
 
